@@ -1,0 +1,31 @@
+.ListItem {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f2f2f2;
+    .Complete {
+        text-decoration: line-through;
+    }
+}
+
+.Editing {
+    height: 53px;
+    padding-left: 0;
+    font-size: inherit;
+    border: unset;
+    font-family: inherit;
+    color: blue;
+    &:focus{
+        outline: none;
+    }
+}
+
+.ButtonGroup button {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 50%;
+}
