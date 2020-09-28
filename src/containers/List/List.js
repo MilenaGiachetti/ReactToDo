@@ -26,7 +26,7 @@ const List = React.memo ((props) => {
     
 
     return (
-        <div className={classes.List}>
+        <div className={classes.List} onClick={(e) => e.stopPropagation()}>
             <div className={classes.deleteListBtnCtn}>
                 <button onClick={() => props.removeList(props.id)} className={classes.deleteListBtn}>X</button>            
             </div>

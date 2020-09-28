@@ -121,7 +121,6 @@ function App() {
 		console.log(listsState)	
 	}, [listsState])
 
-	
 	const changeTaskEdit = useCallback((taskToEditId) => {
 		if (editingItemState === taskToEditId) {
 			setEditingItemState("");
@@ -189,7 +188,7 @@ function App() {
 		}) : null;
 	
 	return (
-		<div className="App">
+		<div className="App" onClick={editingItemState ? () => changeTaskEdit(editingItemState) : undefined }>
 			<header className="App-header">
 				<div className="Container">
 				<img src={logo} className="App-logo" alt="logo" />
