@@ -176,9 +176,15 @@ function App() {
 
 	}, [listsState])
 
+	const removeList = useCallback((listId) => {
+		let updatedLists = listsState.filter( (item) => item.id !== listId);
+		setListsState(updatedLists);	
+		console.log(listsState);
+	}, [listsState])
+
 	let listsJSX = listsState !== [] ? listsState.map((list) => {
 			return (
-				<List title={list.title} key={list.id} id={list.id} tasks={list.tasks} clicked={addTask} delete={deleteTask} toggleComplete={changeTaskState} editingItemId={editingItemState} toggleEditing={changeTaskEdit} editTask={editTask}/>
+				<List title={list.title} key={list.id} id={list.id} tasks={list.tasks} clicked={addTask} delete={deleteTask} removeList={removeList} toggleComplete={changeTaskState} editingItemId={editingItemState} toggleEditing={changeTaskEdit} editTask={editTask}/>
 			);
 		}) : null;
 	

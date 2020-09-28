@@ -21,3 +21,10 @@
     width: 20%;
     height: 100%;
 }
+
+.deleteListBtnCtn {
+    display: flex;
+    .deleteListBtn {
+        margin-left: auto;
+    }
+}

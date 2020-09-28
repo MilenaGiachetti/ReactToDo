@@ -26,10 +26,10 @@ const List = React.memo ((props) => {
     
 
     return (
-        // nombre de la Lista
-        // items de la Lista
-        // agregar elemento a la lista
         <div className={classes.List}>
+            <div className={classes.deleteListBtnCtn}>
+                <button onClick={() => props.removeList(props.id)} className={classes.deleteListBtn}>X</button>            
+            </div>
             <h2>{props.title}</h2>
             <ul>
                 {tasksJSX}
