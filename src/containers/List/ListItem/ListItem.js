@@ -18,9 +18,9 @@ const ListItem = (props) => {
             }
             <div className={classes.ButtonGroup}>
                 {/* edit complete delete */}
-                <button onClick={() => {props.toggleEditing(props.id)}}>e</button>
-                <button onClick={() => {props.toggleComplete(props.listId, props.id)}}>c</button>
-                <button onClick={() => {props.delete(props.listId, props.id)}}>d</button>
+                <button onClick={() => {props.toggleEditing(props.id)}}><i className="fas fa-edit"></i></button>
+                <button onClick={() => {props.toggleComplete(props.listId, props.id)}}><i className="fas fa-check"></i></button>
+                <button onClick={() => {props.delete(props.listId, props.id)}}><i className="fas fa-trash"></i></button>
             </div>
         </li>
     )

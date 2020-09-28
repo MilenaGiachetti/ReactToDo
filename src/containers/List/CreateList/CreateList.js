@@ -18,7 +18,7 @@ const CreateList = React.memo ((props) => {
     return (
         <div className={classes.inputGroup}>
             <input type="text" value={inputState} onKeyDown={event => enterKeyDown(event, addList)} onChange={(e) => setInputState(e.target.value)} placeholder="Add new list name"/>
-            <button onClick={addList}>+</button>
+            <button onClick={addList}><i className="fas fa-plus" title="Add new list"></i></button>
         </div>
     )
 })

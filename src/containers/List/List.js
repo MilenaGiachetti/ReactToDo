@@ -28,8 +28,13 @@ const List = React.memo ((props) => {
     return (
         <div className={classes.List} onClick={(e) => e.stopPropagation()}>
             <div className={classes.deleteListBtnCtn}>
-                <button onClick={() => props.removeList(props.id)} className={classes.deleteListBtn}>X</button>     
-                <button onClick={() => props.toggleShow(props.id)} className={classes.seeListBtn}>OJO</button>                   
+                <button onClick={() => props.removeList(props.id)} className={classes.deleteListBtn}><i className="fas fa-trash"></i></button>     
+                <button onClick={() => props.toggleShow(props.id)} className={classes.seeListBtn}>
+                    {   props.showListId === props.id ?
+                        <i className="fas fa-eye-slash"></i>
+                        : <i className="fas fa-eye"></i>
+                    }
+                </button> 
             </div>
             <h2>{props.title}</h2>
             {props.showListId === props.id ?
@@ -39,7 +44,7 @@ const List = React.memo ((props) => {
                     </ul>
                     <div className={classes.inputGroup}>
                         <input type="text" value={inputState} onKeyDown={event => enterKeyDown(event, addItem)} onChange={event => setInputState(event.target.value)} placeholder="Add task"/>
-                        <button onClick={addItem}>ADD</button>
+                        <button onClick={addItem}><i className="fas fa-plus"></i></button>
                     </div>
                 </div>
                 : null
