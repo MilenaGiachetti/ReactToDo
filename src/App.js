@@ -30,6 +30,7 @@ function App() {
     })
 	const [ listsState, setListsState ] = useState([]);
 	const [ editingItemState, setEditingItemState ] = useState("");
+	const [ showListState, setShowListItemState ] = useState("");
 	
 	useEffect(() => {
 		//localStorage.setItem('lists', JSON.stringify(lists));
@@ -129,6 +130,14 @@ function App() {
 		}
 	}, [editingItemState])
 
+	const changeShownList = useCallback((listToViewId) => {
+		if (showListState === listToViewId) {
+			setShowListItemState("");
+		} else {
+			setShowListItemState(listToViewId);
+		}
+	}, [showListState])
+
 	const editTask = useCallback((listId, taskToEditId, newName) => {
 		console.log(listId)
 		let updatedList = listsState.filter(list => {
@@ -183,7 +192,21 @@ function App() {
 
 	let listsJSX = listsState !== [] ? listsState.map((list) => {
 			return (
-				<List title={list.title} key={list.id} id={list.id} tasks={list.tasks} clicked={addTask} delete={deleteTask} removeList={removeList} toggleComplete={changeTaskState} editingItemId={editingItemState} toggleEditing={changeTaskEdit} editTask={editTask}/>
+				<List 
+					title={list.title} 
+					key={list.id} 
+					id={list.id}
+					tasks={list.tasks} 
+					clicked={addTask} 
+					delete={deleteTask} 
+					removeList={removeList} 
+					toggleComplete={changeTaskState} 
+					editingItemId={editingItemState} 
+					toggleEditing={changeTaskEdit} 
+					editTask={editTask}
+					showListId={showListState}
+					toggleShow={changeShownList}
+				/>
 			);
 		}) : null;
 	

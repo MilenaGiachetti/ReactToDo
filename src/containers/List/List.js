@@ -28,16 +28,22 @@ const List = React.memo ((props) => {
     return (
         <div className={classes.List} onClick={(e) => e.stopPropagation()}>
             <div className={classes.deleteListBtnCtn}>
-                <button onClick={() => props.removeList(props.id)} className={classes.deleteListBtn}>X</button>            
+                <button onClick={() => props.removeList(props.id)} className={classes.deleteListBtn}>X</button>     
+                <button onClick={() => props.toggleShow(props.id)} className={classes.seeListBtn}>OJO</button>                   
             </div>
             <h2>{props.title}</h2>
-            <ul>
-                {tasksJSX}
-            </ul>
-            <div className={classes.inputGroup}>
-                <input type="text" value={inputState} onKeyDown={event => enterKeyDown(event, addItem)} onChange={event => setInputState(event.target.value)} placeholder="Add task"/>
-                <button onClick={addItem}>ADD</button>
-            </div>
+            {props.showListId === props.id ?
+                <div>
+                    <ul>
+                        {tasksJSX}
+                    </ul>
+                    <div className={classes.inputGroup}>
+                        <input type="text" value={inputState} onKeyDown={event => enterKeyDown(event, addItem)} onChange={event => setInputState(event.target.value)} placeholder="Add task"/>
+                        <button onClick={addItem}>ADD</button>
+                    </div>
+                </div>
+                : null
+            }
         </div>
     )
 })
