@@ -27,16 +27,18 @@ const List = React.memo ((props) => {
 
     return (
         <div className={classes.List} onClick={(e) => e.stopPropagation()}>
-            <div className={classes.deleteListBtnCtn}>
-                <button onClick={() => props.removeList(props.id)} className={classes.deleteListBtn}><i className="fas fa-trash"></i></button>     
-                <button onClick={() => props.toggleShow(props.id)} className={classes.seeListBtn}>
-                    {   props.showListId === props.id ?
-                        <i className="fas fa-eye-slash"></i>
-                        : <i className="fas fa-eye"></i>
-                    }
-                </button> 
+            <div className={classes.constantListView}>
+                <h2>{props.title}</h2>
+                <div className={classes.btnCtn}>
+                    <button onClick={() => props.removeList(props.id)} className="roundBtn warning"><i className="fas fa-trash"></i></button>     
+                    <button onClick={() => props.toggleShow(props.id)} className="roundBtn">
+                        {   props.showListId === props.id ?
+                            <i className="fas fa-eye-slash"></i>
+                            : <i className="fas fa-eye"></i>
+                        }
+                    </button> 
+                </div>
             </div>
-            <h2>{props.title}</h2>
             {props.showListId === props.id ?
                 <div>
                     <ul>
