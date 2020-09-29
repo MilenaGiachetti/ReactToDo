@@ -6,7 +6,6 @@ const ListItem = (props) => {
     const inputRef = useRef();
     useEffect(() => {
         if(inputRef.current){
-            console.log(inputRef.current)
             inputRef.current.focus();
         }
     }, [props.editingItemId])
