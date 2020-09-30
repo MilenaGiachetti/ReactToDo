@@ -1,6 +1,6 @@
 import React, {useState, useCallback, useEffect} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import List from './containers/List/List';
 import CreateList from './containers/List/CreateList/CreateList';
 
